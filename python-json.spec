@@ -1,7 +1,3 @@
-%{!?python_sitelib: %define python_sitelib %(%{__python} -c "from distutils.sysconfig import get_python_lib; print get_python_lib()")}
-%{!?python_sitearch: %define python_sitearch %(%{__python} -c "from distutils.sysconfig import get_python_lib; print get_python_lib(1)")}
-%{!?pydir: %define pydir %(%{__python} -c "from distutils.sysconfig import get_config_vars; print get_config_vars()['LIBDEST']")}
-
 Name:           python-json
 Version:        3.4
 %define version_munge %(sed 's/\\./_/g' <<< %{version})
@@ -12,7 +8,7 @@ Group:          Development/Languages
 License:        LGPLv2+
 URL:            https://sourceforge.net/projects/json-py/
 Source0:        http://dl.sourceforge.net/json-py/json-py-%{version_munge}.zip
-BuildRoot:      %{_tmppath}/%{name}-%{version}-%{release}-root-%(%{__id_u} -n)
+BuildRoot:      %{_tmppath}/%{name}-%{version}-%{release}-root
 
 BuildArch:      noarch
 BuildRequires:  python-devel
@@ -31,8 +27,7 @@ chmod a-x *
 rm -rf $RPM_BUILD_ROOT
 mkdir -p $RPM_BUILD_ROOT%{python_sitelib}
 install -p -m 0644 json.py minjson.py $RPM_BUILD_ROOT%{python_sitelib}
-%{__python} %{pydir}/compileall.py $RPM_BUILD_ROOT%{python_sitelib}
-%{__python} -O %{pydir}/compileall.py $RPM_BUILD_ROOT%{python_sitelib}
+%py_compile $RPM_BUILD_ROOT%{python_sitelib}
 
 %clean
 rm -rf $RPM_BUILD_ROOT
