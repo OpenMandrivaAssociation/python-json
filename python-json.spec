@@ -1,10 +1,10 @@
 Name:           python-json
 Version:        3.4
 %define version_munge %(sed 's/\\./_/g' <<< %{version})
-Release:        4%{?dist}
+Release:        1
 Summary:        A JSON reader and writer for Python
 
-Group:          Development/Languages
+Group:          Development/Python
 License:        LGPLv2+
 URL:            https://sourceforge.net/projects/json-py/
 Source0:        http://dl.sourceforge.net/json-py/json-py-%{version_munge}.zip
