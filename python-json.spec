@@ -38,3 +38,30 @@ rm -rf $RPM_BUILD_ROOT
 %{python_sitelib}/*.py
 %{python_sitelib}/*.py[co]
 
+
+
+%changelog
+* Tue Sep 15 2009 Thierry Vignaud <tv@mandriva.org> 3.4-3mdv2010.0
++ Revision: 442198
+- rebuild
+
+* Sat Jan 03 2009 Funda Wang <fwang@mandriva.org> 3.4-2mdv2009.1
++ Revision: 323733
+- rebuild
+
+* Mon Nov 10 2008 Bogdano Arendartchuk <bogdano@mandriva.com> 3.4-1mdv2009.1
++ Revision: 301831
+- import python-json
+
+
+* Wed Sep  3 2008 Tom "spot" Callaway <tcallawa@redhat.com> 3.4-4
+- fix license tag
+
+* Sat Dec  9 2006 Luke Macken <lmacken@redhat.com> 3.4-3
+- Rebuild for python 2.5
+
+* Fri Sep  8 2006 Luke Macken <lmacken@redhat.com> 3.4-2
+- Rebuild for FC6
+
+* Fri Dec 30 2005 Ignacio Vazquez-Abrams <ivazquez@ivazquez.net> 3.4-1
+- Initial RPM release
