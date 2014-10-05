@@ -30,4 +30,3 @@ install -p -m 0644 json.py minjson.py %{buildroot}%{python_sitelib}
 %files
 %doc changes.txt jsontest.py license.txt readme.txt
 %{python_sitelib}/*.py
-%{python_sitelib}/*.py[co]
