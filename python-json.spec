@@ -1,7 +1,7 @@
 Name:		python-json
 Version:	3.4
 %define version_munge %(sed 's/\\./_/g' <<< %{version})
-Release:	6
+Release:	7
 Summary:	A JSON reader and writer for Python
 
 Group:		Development/Python
