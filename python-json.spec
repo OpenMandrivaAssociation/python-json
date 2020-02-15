@@ -1,32 +1,47 @@
-Name:		python-json
-Version:	3.4
-%define version_munge %(sed 's/\\./_/g' <<< %{version})
-Release:	12
-Summary:	A JSON reader and writer for Python
+%define upstream_name python-json
+%define upstream_version 3_4
 
-Group:		Development/Python
-License:	LGPLv2+
-URL:		https://sourceforge.net/projects/json-py/
-Source0:	http://dl.sourceforge.net/json-py/json-py-%{version_munge}.zip
-BuildArch:	noarch
-BuildRequires:	python-devel
+Name:           python-json
+Version:        3.4
+Release:        12
+Summary:        JSON reader and writer in Python
+Group:          Development/Python
+License:        LGPL
+URL:            http://sourceforge.net/projects/json-py/
+Source0:        http://sourceforge.net/projects/json-py/files/json-py/3_4/json-py-%{upstream_version}.zip
+BuildArch:      noarch
 
 %description
-json.py is an implementation of a JSON (http://json.org) reader and writer in
-Python.
+json.py is an implementation of a JSON (http://json.org) reader
+and writer in Python.
+
+#------------------------------------------------
+
+%package -n     python2-json
+Summary:        JSON reader and writer in Python 2
+Group:          Development/Python
+BuildArch:      noarch
+BuildRequires:	pkgconfig(python2)
+
+Obsoletes:      python-json < 3.4-9
+Provides:       python-json = %{version}-%{release}
+Provides:       pythonegg(2)(json) = %{version}-%{release}
+
+%description -n python2-json
+json.py is an implementation of a JSON (http://json.org) reader
+and writer in Python 2.
+
+#------------------------------------------------
 
 %prep
 %setup -q -c
-chmod a-x *
+chmod 644 *.txt
 
 %build
 
 %install
-mkdir -p %{buildroot}%{python_sitelib}
-install -p -m 0644 json.py minjson.py %{buildroot}%{python_sitelib}
-%py_compile %{buildroot}%{python_sitelib}
+install -D -m 644 json.py %{buildroot}%{python2_sitelib}/json.py
 
-
-%files
-%doc changes.txt jsontest.py license.txt readme.txt
-%{python_sitelib}/*.py
+%files -n python2-json
+%doc *.txt
+%{python2_sitelib}/json.py*
