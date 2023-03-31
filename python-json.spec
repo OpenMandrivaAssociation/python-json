@@ -3,7 +3,7 @@
 
 Name:           python-json
 Version:        3.4
-Release:        12
+Release:        13
 Summary:        JSON reader and writer in Python
 Group:          Development/Python
 License:        LGPL
