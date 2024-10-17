@@ -7,7 +7,7 @@ Release:        13
 Summary:        JSON reader and writer in Python
 Group:          Development/Python
 License:        LGPL
-URL:            http://sourceforge.net/projects/json-py/
+URL:            https://sourceforge.net/projects/json-py/
 Source0:        http://sourceforge.net/projects/json-py/files/json-py/3_4/json-py-%{upstream_version}.zip
 BuildArch:      noarch
 
